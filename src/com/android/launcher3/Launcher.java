@@ -979,7 +979,11 @@ public class Launcher extends BaseActivity
         }
 
         if (Utilities.ATLEAST_NOUGAT_MR1) {
-            mAppWidgetHost.startListening();
+            try {
+                mAppWidgetHost.startListening();
+            } catch (java.lang.IllegalStateException e) {
+                Log.e(TAG, "Suppresed IllegalStateException");
+            }
         }
 
         if (!isWorkspaceLoading()) {
