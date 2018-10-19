@@ -772,4 +772,9 @@ public final class Utilities {
             return mSize;
         }
     }
+
+    static boolean hasFeedIntegration(Context context) {
+        SharedPreferences prefs = getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(Homescreen.KEY_FEED_INTEGRATION, true);
+    }
 }
